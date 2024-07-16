@@ -9,7 +9,7 @@ const CartProvider = ({ children }) => {
     id: faker.string.uuid(),
     name: faker.commerce.productName(),
     price: faker.commerce.price(),
-    image: faker.image.url,
+    image: faker.image.url(),
     instock: faker.datatype.boolean(),
     fastDelivery: faker.datatype.boolean(),
     ratings: faker.helpers.arrayElement([1, 2, 3, 4, 5]),
