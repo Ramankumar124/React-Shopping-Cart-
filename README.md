@@ -32,9 +32,9 @@ Check out the live demo of the website [here](https://react-shopping-cart-theta-
 
 ## Screenshots
 
-![Home Page](https://github.com/yourusername/shopping-website/blob/main/screenshots/home.png)
+![Home Page](https://github.com/Ramankumar124/React-Shopping-Cart-/blob/main/screenshots/home.png)
 *Home Page with Product Listings and Filters*
 
-![Cart Page](https://github.com/yourusername/shopping-website/blob/main/screenshots/cart.png)
+![Cart Page](https://github.com/Ramankumar124/React-Shopping-Cart-/blob/main/screenshots/cart.png)
 *Cart Page with Selected Items*
 
