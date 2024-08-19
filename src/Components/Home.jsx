@@ -36,7 +36,7 @@ const Home = () => {
                 <Card.Title className="font-bold text-2xl">
                   {pd.name}
                 </Card.Title>
-                <Card.Text className="font-bold">₹{pd.price}</Card.Text>
+                <Card.Text className="font-bold">${pd.price}</Card.Text>
                 <Card.Text className="font-bold">
                   {pd.fastDelivery ? "Fast Delivery" : "4 Day Delivery"}
                 </Card.Text>
