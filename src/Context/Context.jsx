@@ -1,10 +1,11 @@
+
 import { createContext, useReducer } from "react";
 import { cartReducer, productReducer } from "./Reducer";
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-  const products = [
+ const products = [
     {
       id: "1",
       name: "Bicycle",
@@ -142,66 +143,64 @@ const CartProvider = ({ children }) => {
     },
     {
       id: "16",
-      name: "Portable Charger",
-      price: "49.99",
-      image: "https://images.unsplash.com/photo-1593032376317-e2bfb70cf497?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
+      name: "Coffee Maker",
+      price: "79.99",
+      image: "https://images.unsplash.com/photo-1707241358597-bafcc8a8e73d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
       instock: true,
-      fastDelivery: false,
+      fastDelivery: true,
       ratings: 5,
     },
     {
       id: "17",
-      name: "Water Bottle",
-      price: "14.99",
-      image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
+      name: "Electric Kettle",
+      price: "29.99",
+      image: "https://images.unsplash.com/photo-1647619124290-10fb9273b4b5?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
       instock: true,
-      fastDelivery: true,
+      fastDelivery: false,
       ratings: 4,
     },
     {
       id: "18",
-      name: "Wireless Keyboard",
-      price: "34.99",
-      image: "https://images.unsplash.com/photo-1627895837140-fd0f3ea5f3b0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
+      name: "Water Bottle",
+      price: "14.99",
+      image: "https://images.unsplash.com/photo-1664714628878-9d2aa898b9e3?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
       instock: true,
       fastDelivery: true,
       ratings: 4,
     },
     {
       id: "19",
-      name: "Fitness Tracker",
-      price: "99.99",
-      image: "https://images.unsplash.com/photo-1596357398486-76e14003439c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
-      instock: false,
+      name: "Yoga Mat",
+      price: "24.99",
+      image: "https://plus.unsplash.com/premium_photo-1667739346017-fbc9cd35d666?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
+      instock: true,
       fastDelivery: true,
-      ratings: 4,
+      ratings: 5,
     },
     {
       id: "20",
-      name: "Coffee Mug",
-      price: "12.99",
-      image: "https://images.unsplash.com/photo-1534151662743-cf9e8a1b6321?q=80&w=1782&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
+      name: "Tennis Racket",
+      price: "79.99",
+      image: "https://plus.unsplash.com/premium_photo-1666913667023-4bfd0f6cff0a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
       instock: true,
       fastDelivery: true,
-      ratings: 3,
+      ratings: 4,
     },
   ];
 
-  const [state, dispatch] = useReducer(cartReducer, {
-    products: products,
+  const initialState = {
     cart: [],
-  });
+    product: products,
+    FilterProducts: products.filter((pd)=>pd.instock==true),
+  };
 
-  const [filterState, filterDispatch] = useReducer(productReducer, {
-    byStock: false,
-    byFastDelivery: false,
-    byRating: 0,
-    searchQuery: "",
-    sort: "lowToHigh",
-  });
+  const [state, dispatch] = useReducer(cartReducer, initialState);
+  const [productState, productDispatch] = useReducer(productReducer, initialState);
 
   return (
-    <CartContext.Provider value={{ state, dispatch, filterState, filterDispatch }}>
+    <CartContext.Provider
+      value={{ state, dispatch, productState, productDispatch }}
+    >
       {children}
     </CartContext.Provider>
   );
