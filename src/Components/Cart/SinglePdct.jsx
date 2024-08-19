@@ -37,7 +37,7 @@ const SinglePdct = ({ pd }) => {
       <div className="w-[200px] text-wrap">
         <h1 className="text-xl">{pd.name}</h1>
       </div>
-      <p className="font-bold text-xl">₹{pd.price}</p>
+      <p className="font-bold text-xl">${pd.price}</p>
       <Rating rating={pd.ratings} />
       <DropdownButton id="dropdown-item-button" title={dropinput} size="lg">
         <Dropdown.Item onClick={() => setQuantity(1, pd.id)}>1</Dropdown.Item>
