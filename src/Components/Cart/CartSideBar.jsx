@@ -13,7 +13,7 @@ const CartSideBar = () => {
   return (
     <div className='text-white flex flex-col gap-4'>
         <h1 className='text-4xl'>SubTotal ({cart.length}) Items</h1>
-        <p className='text-2xl font-bold'>Total: ₹{total}</p>
+        <p className='text-2xl font-bold'>Total: ${total}</p>
       <Button className='font-semibold text-xl'>Procced To Checkout</Button>
     </div>
   )
